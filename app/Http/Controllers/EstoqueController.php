@@ -65,13 +65,7 @@ class EstoqueController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function move($id)
-    {
-        $estoque = Estoque::findOrFail($id);
-        $estoque->Storage::move();
 
-        return \redirect()->action('App\Http\Controllers\EstoqueController@index');
-    }
 
     /**
      * Show the form for editing the specified resource.

@@ -45,7 +45,6 @@
             <th scope="col">Preço</th>
             <th scope="col">Categoria</th>
             <th scope="col">Editar</th>
-            <th scope="col">Vender</th>
             <th scope="col">Remover</th>
         </tr>
     </thead>
@@ -60,10 +59,6 @@
             <td>{{$item->categorias->categoria ?? "" }}</td>
             <td><a href="{{ action('App\Http\Controllers\EstoqueController@edit',$item->id) }}" style='color:orange;'><i
                         class='fas fa-edit'></i></a>
-            </td>
-            <td><a href='{{ action('App\Http\Controllers\EstoqueController@move', $item->id) }}'
-                onclick="return confirm('Deseja realmente mover o registro para vendas?');" style='color:green;'><i
-                class='fas fa-archive'></i></a>
             </td>
             <td><a href='{{ action('App\Http\Controllers\EstoqueController@destroy', $item->id) }}'
                     onclick="return confirm('Deseja realmente remover o registro?');"  style='color:red;'><i
