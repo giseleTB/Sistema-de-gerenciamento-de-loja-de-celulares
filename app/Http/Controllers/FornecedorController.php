@@ -47,9 +47,8 @@ class FornecedorController extends Controller
     public function edit($id)
     {
         $objFornecedor = Fornecedor::find($id);
-        $fornecedor = Fornecedor::all();
 
-        return view("fornecedor.form")->with(['fornecedor' => $objFornecedor, 'fornecedor' => $fornecedor]);
+        return view("fornecedor.form")->with(['fornecedor' => $objFornecedor]);
     }
 
     public function update(Request $request, $id)

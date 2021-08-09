@@ -25,7 +25,7 @@ $action = action('App\Http\Controllers\VendaController@update',$venda->id );
 $action = action('App\Http\Controllers\VendaController@store');
 }
 @endphp
-<h4>Formulário de Venda</h4>
+<h4>Formulário de Vendas</h4>
 <form action="{{ $action }}" method="post">
     @csrf
     <div class="form-row">

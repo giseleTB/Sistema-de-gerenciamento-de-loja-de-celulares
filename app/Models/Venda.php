@@ -54,7 +54,7 @@ class Venda extends Model
 
     public function categorias()
     {
-        return $this->belongsTo(VendaCategoria::class, 'vendae_categoria_id', 'id');
+        return $this->belongsTo(VendaCategoria::class, 'venda_categoria_id', 'id');
     }
 
 }

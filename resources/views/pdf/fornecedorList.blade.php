@@ -11,7 +11,7 @@
 <body>
     <ul>
         @forelse ($fornecedor as $item )
-        <li>{{$item->id}} - {{$item->nome}}</li>
+        <li>{{$item->nome}} - {{$item->telefone}} - {{$item->email}}</li>
         @empty
         <li>Nenhum registro foi encontrado</li>
         @endforelse

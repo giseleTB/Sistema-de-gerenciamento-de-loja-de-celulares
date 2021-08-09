@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-<h4>Listagem de Venda</h4>
+<h4>Listagem de Vendas</h4>
 <p></p>
 
 <form action="{{ action('App\Http\Controllers\VendaController@search') }}" method="post">
