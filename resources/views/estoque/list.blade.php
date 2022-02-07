@@ -7,8 +7,10 @@
 @endsection
 
 @section('content')
-<h4>Listagem de Estoque</h4>
-<p></p>
+<h1 align =center ><strong>Estoque</strong></h1>
+<br>
+
+
 
 <form action="{{ action('App\Http\Controllers\EstoqueController@search') }}" method="post">
     @csrf
@@ -26,10 +28,10 @@
             </select>
         </div>
         <button type="submit" class="btn btn-primary"> <i class="fas fa-search"></i> Buscar</button>
-        <div class="col-3">
+        <div class="col-4">
             <a href="{{url("/estoque/create")}}" class="btn btn-success"> <i class="fas fa-plus-circle"></i> Cadastrar</a>
             <a href="{{url("/estoque-relatorio")}}" class="btn btn-danger"> <i class="fas fa-file-pdf"></i> Relatório</a>
-
+            <a href="{{url("/estoque-email")}}" class="btn btn-secondary"> <i class="fas fa-envelope-open-text"></i> Enviar Email</a>
         </div>
     </div>
 </form>
@@ -39,6 +41,7 @@
     <thead>
         <tr>
             <th scope="col">ID</th>
+            <th scope="col">Imagem</th>
             <th scope="col">Nome</th>
             <th scope="col">Código</th>
             <th scope="col">Marca</th>
@@ -50,8 +53,12 @@
     </thead>
     <tbody>
         @foreach ($estoque as $item)
+        @php
+            !empty($item->nome_arquivo) ? $nome_arquivo = $item->nome_arquivo : $nome_arquivo = "sem_imagem.png";
+        @endphp
         <tr>
             <th scope='row'>{{$item->id}}</th>
+            <td><img src="/storage/imagem/{{$nome_arquivo}}" width="50px" /></td>
             <td>{{$item->nome}}</td>
             <td>{{$item->codigo}}</td>
             <td>{{$item->marca}}</td>
@@ -67,4 +74,6 @@
         @endforeach
     </tbody>
 </table>
+
+{{$estoque->links()}}
 @endsection

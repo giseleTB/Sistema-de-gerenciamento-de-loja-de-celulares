@@ -19,7 +19,7 @@ class CreateEstoqueTable extends Migration
             $table->string("codigo", 20);
             $table->string("marca", 80);
             $table->string("preco", 20);
-            $table->string("descricao", 150);
+            $table->string("descricao");
             $table->timestamps();
         });
     }

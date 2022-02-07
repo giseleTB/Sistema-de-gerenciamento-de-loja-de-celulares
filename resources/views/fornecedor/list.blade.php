@@ -7,8 +7,8 @@
 @endsection
 
 @section('content')
-<h4>Listagem de Fornecedores</h4>
-<p></p>
+<h1 align =center><strong>Fornecedores</strong></h1>
+<br>
 
 <form action="{{ action('App\Http\Controllers\FornecedorController@search') }}" method="post">
     @csrf
@@ -61,4 +61,5 @@
         @endforeach
     </tbody>
 </table>
+{{$fornecedor->links()}}
 @endsection
