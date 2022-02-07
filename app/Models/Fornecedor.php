@@ -18,7 +18,7 @@ class Fornecedor extends Model
         return [
             'nome' => 'required|max:100',
             'telefone' => 'required|max:50',
-            'email' => 'max:100',
+            'email' => 'required|max:100',
         ];
     }
 
@@ -29,6 +29,7 @@ class Fornecedor extends Model
             'nome.max' => 'Só é permitido 100 caracteres',
             'telefone.required' => 'O telefone é obrigatório',
             'telefone.max' => 'Só é permitido 50 caracteres',
+            'email.required' => 'O email é obrigatório',
             'email.max' => 'Só é permitido 100 caracteres',
         ];
     }

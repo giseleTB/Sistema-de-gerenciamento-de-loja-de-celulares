@@ -6,13 +6,22 @@
 @parent
 @endsection
 
-@section('content')
-<h4>Listagem de Vendas</h4>
-<p></p>
+@section('grafico')
+<div class="row">
+    <div class="col-6">
+        {!! $chartVenda->container()!!}
+        {{ $chartVenda->script()}}
+    </div>
+</div>
+@stop
 
-<form action="{{ action('App\Http\Controllers\VendaController@search') }}" method="post">
+@section('content')
+<h1 align =center><strong>Vendas</strong></h1>
+<br>
+
+<form action="{{ action('App\Http\Controllers\VendaController@search') }}" method="post" >
     @csrf
-    <div class="form-row">
+    <div class="form-row" >
         <div class="col-3">
             <input type="text" class="form-control" placeholder="Digite sua pesquisa..." name="valor" id="">
         </div>
@@ -76,4 +85,5 @@
         @endforeach
     </tbody>
 </table>
+{{$venda->links()}}
 @endsection

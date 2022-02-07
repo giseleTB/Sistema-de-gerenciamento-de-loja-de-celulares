@@ -6,6 +6,7 @@
 @parent
 @endsection
 
+
 @section('content')
 <p></p>
 @if ($errors->any())
@@ -26,7 +27,7 @@ $action = action('App\Http\Controllers\EstoqueController@store');
 }
 @endphp
 <h4>Formulário de Estoque</h4>
-<form action="{{ $action }}" method="post">
+<form action="{{ $action }}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="form-row">
         <input type="hidden" name="id"
@@ -71,11 +72,25 @@ $action = action('App\Http\Controllers\EstoqueController@store');
             </select>
         </div>
 
-        <div class="form-group col-md-12">
+        <div class="form-group col-md-6">
             <label for="descricao">Descrição</label>
             <textarea name="descricao" id="descricao" class="form-control"
                 placeholder="Sua descrição..."> @if(!empty(old('descricao'))) {{old('descricao') }}  @elseif (!empty($estoque->descricao)) {{ $estoque->descricao}} @endif</textarea><br>
         </div>
+
+        @php
+            !empty($estoque->nome_arquivo) ? $nome_arquivo = $estoque->nome_arquivo : $nome_arquivo = "sem_imagem.png";
+        @endphp
+
+        <div class="col-md-6">
+            <label for="nome_arquivo">Imagem</label>
+            <input type="file" name="nome_arquivo" id="nome_arquivo" class="form-control"
+            >
+            <img src="/storage/imagem/{{$nome_arquivo}}" width="100px" />
+            <br>
+        </div>
+
+
     </div>
     <button type="submit" class="btn btn-success"> <i class="fas fa-save"></i> Salvar</button>
     <a href="{{url("/estoque")}}" class="btn btn-primary"> <i class="fas fa-arrow-left"></i> Voltar</a>

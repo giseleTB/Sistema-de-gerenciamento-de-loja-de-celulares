@@ -6,6 +6,14 @@
 @parent
 @endsection
 
+@section('script')
+<script>
+    $(document).ready(function($) {
+        $('#cliente_cpf').mask('000.000.000-00');
+    });
+</script>
+@endsection
+
 @section('content')
 <p></p>
 @if ($errors->any())

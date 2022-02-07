@@ -22,7 +22,7 @@ class CreateVendaTable extends Migration
             $table->string("cliente_nome", 100);
             $table->string("cliente_cpf", 50);
             $table->string("cliente_telefone", 50);
-            $table->string("descricao", 150);
+            $table->string("descricao");
             $table->timestamps();
         });
     }

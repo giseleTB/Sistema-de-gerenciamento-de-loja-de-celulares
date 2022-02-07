@@ -11,7 +11,7 @@ class Estoque extends Model
 
     protected $table = 'estoque';
 
-    protected $fillable = ["nome", "codigo", "marca", "preco", "descricao", 'estoque_categoria_id'];
+    protected $fillable = ["nome", "codigo", "marca", "preco", "descricao", 'estoque_categoria_id', 'nome_arquivo'];
 
 
     public static function rules()
@@ -23,6 +23,7 @@ class Estoque extends Model
             'preco' => 'required|max:20',
             'estoque_categoria_id' => 'required',
             'descricao' => 'required|max:150',
+            'nome_arquivo' => 'required|image|mimes:jpeg,jpg,png|max:2048',
         ];
     }
 

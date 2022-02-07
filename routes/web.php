@@ -32,6 +32,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/estoque/search/', "App\Http\Controllers\EstoqueController@search");
     Route::get('/estoque-relatorio', "App\Http\Controllers\EstoqueController@gerarEstoquePDF");
 
+    Route::get('/estoque-email', "App\Http\Controllers\EstoqueController@sendEmail");
+
     Route::get('/venda', "App\Http\Controllers\VendaController@index");
     Route::get('/venda/create', "App\Http\Controllers\VendaController@create");
     Route::post('/venda/store', "App\Http\Controllers\VendaController@store");
@@ -51,4 +53,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/fornecedor/destroy/{id}', "App\Http\Controllers\FornecedorController@destroy");
     Route::post('/fornecedor/search/', "App\Http\Controllers\FornecedorController@search");
     Route::get('/fornecedor-relatorio', "App\Http\Controllers\FornecedorController@gerarFornecedorPDF");
+
 });
